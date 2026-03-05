@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================================
+ESTILO GERAL DO SITE
+================================ */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ================================
+SEÇÃO HERO
+================================ */
+
+.hero {
+    position: relative;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+/* ================================
+VÍDEO DE FUNDO
+================================ */
+
+.bg-video {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    transform: translate(-50%, -50%);
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+/* ================================
+OVERLAY ESCURO
+================================ */
+
+.hero .overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.85)
+    );
+
+    z-index: 1;
+}
+
+.hero img,
+.hero p {
+    position: relative;
+    z-index: 2;
+}
+
+/* ================================
+LOGOS
+================================ */
+
+.hero .hbo {
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+.hero .logo-principal {
+    width: 420px;
+    max-width: 90%;
+    margin: 20px 0;
+}
+
+.hero .tagline {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+/* ================================
+DESCRIÇÃO
+================================ */
+
+.descricao {
+    background-color: #0b0b0b;
+    padding: 80px 20px;
+}
+
+.descricao p {
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* ================================
+SELETOR PERSONAGENS
+================================ */
+
+.seletor {
+    display: flex;
+    gap: 60px;
+    padding: 80px 40px;
+
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.seletor input {
+    display: none;
+}
+
+.imagens {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.imagens img {
+    width: 90px;
+    height: 90px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    cursor: pointer;
+
+    opacity: 0.5;
+
+    border: 3px solid transparent;
+
+    transition: 0.3s ease;
+}
+
+#foto1:checked ~ .imagens label[for="foto1"] img,
+#foto2:checked ~ .imagens label[for="foto2"] img,
+#foto3:checked ~ .imagens label[for="foto3"] img {
+    opacity: 1;
+    border-color: #fff;
+}
+
+/* ================================
+TEXTOS PERSONAGENS
+================================ */
+
+.textos {
+    max-width: 500px;
+}
+
+.texto {
+    display: none;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    position: relative;
+
+    transform: translateY(110px);
+}
+
+#foto1:checked ~ .textos .texto1 {
+    display: flex;
+}
+
+#foto2:checked ~ .textos .texto2 {
+    display: flex;
+}
+
+#foto3:checked ~ .textos .texto3 {
+    display: flex;
+}
+
+/* ================================
+SLIDER
+================================ */
+
+.slider {
+    margin: 100px auto;
+    width: 500px;
+    height: 300px;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 12px;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.slide.active {
+    display: block;
+}
+
+/* ================================
+BOTÕES SLIDER
+================================ */
+
+.manual-nav {
+    position: absolute;
+
+    width: 100%;
+
+    bottom: 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.manual-btn {
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    border: 2px solid white;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.manual-btn:hover {
+    background: white;
+}
+
+/* ================================
+BOTÃO ASSISTIR
+================================ */
+
+.btn-assistir {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 16px 50px;
+
+    background: linear-gradient(45deg, #005eff, #00aaff);
+
+    color: #fff;
+
+    font-weight: bold;
+
+    font-size: 1.1rem;
+
+    border-radius: 40px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    box-shadow: 0 0 15px rgba(0, 132, 255, 0.6);
+
+    transition: 0.3s ease;
+
+    animation: pulse 1.8s infinite;
+}
+
+.btn-assistir:hover {
+    transform: scale(1.1);
+
+    box-shadow: 0 0 25px rgba(0, 132, 255, 0.9);
+}
+
+/* ================================
+ANIMAÇÃO BOTÃO
+================================ */
+
+@keyframes pulse {
+
+    0% {
+        box-shadow: 0 0 10px rgba(0,132,255,0.6);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(0,132,255,1);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(0,132,255,0.6);
+    }
+
+}
+
+/* ================================
+RODAPÉ
+================================ */
+
+.footer {
+    padding: 30px;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
