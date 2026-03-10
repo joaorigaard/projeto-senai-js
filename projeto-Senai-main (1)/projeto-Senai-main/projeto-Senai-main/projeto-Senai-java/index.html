@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!-- Define que o documento usa HTML5 -->
+
+<html lang="pt-BR">
+<!-- Define o idioma da página como português do Brasil -->
+
+<head>
+
+    <meta charset="UTF-8">
+    <!-- Permite usar acentos e caracteres especiais -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Faz o site funcionar corretamente em celulares e telas menores -->
+
+    <title>Game of Thrones</title>
+    <!-- Título que aparece na aba do navegador -->
+
+    <link rel="shortcut icon" href="imagens/favicon-got.ico" type="image/x-icon">
+    <!-- Ícone que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- Conecta o arquivo CSS que define o estilo da página -->
+
+</head>
+
+<body>
+
+<!-- HERO (seção principal do topo da página) -->
+<header class="hero">
+
+    <!-- Vídeo de fundo -->
+    <video class="bg-video" autoplay muted loop playsinline src="videos/fundo.mp4"></video>
+        <!-- autoplay = inicia automaticamente -->
+        <!-- muted = sem som (necessário para autoplay funcionar) -->
+        <!-- loop = repete infinitamente -->
+        <!-- playsinline = evita abrir tela cheia no celular -->
+
+        <source src="videos/fundo.mp4" type="video/mp4">
+        <!-- Arquivo do vídeo de fundo -->
+    </video>
+
+    <!-- Camada escura sobre o vídeo para melhorar a leitura -->
+    <div class="overlay"></div>
+
+    <!-- Logo da HBO -->
+    <img class="hbo" src="imagens/hbo-logo.png" alt="HBO">
+
+    <!-- Logo principal da série -->
+    <img class="logo-principal" src="imagens/logo-principal.png" alt="Game of Thrones">
+
+    <!-- Frase famosa da série -->
+    <p class="tagline">O inverno está chegando</p>
+    
+    <div class="botoes">
+        <span class="botao ativo" onclick="mudarFundo(0)"></span>
+        <span class="botao" onclick="mudarFundo(1)"></span>
+        <span class="botao" onclick="mudarFundo(2)"></span>
+        
+
+    </div>
+
+</header>
+
+<main>
+<!-- Conteúdo principal da página -->
+
+<!-- SEÇÃO DE DESCRIÇÃO -->
+
+
+
+
+<!-- SELETOR DE PERSONAGENS -->
+<section class="seletor">
+    <!-- TEXTO DE INTRODUÇÃO -->
+<div class="intro">
+    <p>
+        Personagens marcantes de Game of Thrones lutam por poder, honra e sobrevivência em um mundo cheio de alianças e traições.
+    </p>
+    </div>
+
+<!-- Inputs tipo radio usados para controlar qual personagem aparece -->
+<input type="radio" name="foto" id="foto1" checked>
+<!-- checked = começa selecionado -->
+
+<input type="radio" name="foto" id="foto2">
+<input type="radio" name="foto" id="foto3">
+
+<!-- Coluna com as imagens clicáveis dos personagens -->
+<div class="imagens">
+
+<label for="foto1">
+<!-- Quando clicar ativa o radio foto1 -->
+<img src="imagens/daenerys-icon.jpg" alt="Daenerys">
+</label>
+
+<label for="foto2">
+<img src="imagens/tyrion-icon.jpg" alt="Tyrion">
+</label>
+
+<label for="foto3">
+<img src="imagens/snow-icon.jpg" alt="Jon Snow">
+</label>
+
+</div>
+
+<!-- Área onde aparecem os textos dos personagens -->
+<div class="textos">
+
+<div class="texto texto1">
+<h2>Daenerys Targaryen</h2>
+<p>
+Conhecida como a Mãe dos Dragões, Daenerys busca libertar os oprimidos enquanto enfrenta o conflito entre justiça e poder absoluto.
+</p>
+</div>
+
+<div class="texto texto2">
+<h2>Tyrion Lannister</h2>
+<p>
+Um estrategista brilhante que sobrevive usando inteligência, sarcasmo e uma visão política afiada em Westeros.
+</p>
+</div>
+
+<div class="texto texto3">
+<h2>Jon Snow</h2>
+<p>
+Um líder relutante guiado pela honra e pelo dever, destinado a enfrentar ameaças que vão além do Trono de Ferro.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SLIDER DE IMAGENS -->
+<section class="slider">
+
+<div class="slides">
+
+<!-- Slide 1 (ativo quando a página carrega) -->
+<div class="slide active">
+<img src="imagens/daenerys-slider.jpg" alt="Daenerys">
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+<img src="imagens/snow-slider.jpg" alt="Jon Snow">
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+<img src="imagens/tyrion-slider.jpg" alt="Tyrion">
+</div>
+
+</div>
+
+<!-- Botões para trocar manualmente os slides -->
+<div class="manual-nav">
+
+<button class="manual-btn" onclick="irParaSlide(0)"></button>
+<!-- Vai para o slide 1 -->
+
+<button class="manual-btn" onclick="irParaSlide(1)"></button>
+<!-- Vai para o slide 2 -->
+
+<button class="manual-btn" onclick="irParaSlide(2)"></button>
+<!-- Vai para o slide 3 -->
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- RODAPÉ DO SITE -->
+<footer class="footer">
+
+<p>
+© 2026 – Projeto front-end Senai  
+Game of Thrones © HBO.
+</p>
+
+<!-- Botão que leva para assistir a série -->
+<a href="https://www.hbomax.com/br/pt/shows/game-of-thrones/4f6b4985-2dc9-4ab6-ac79-d60f0860b0ac"
+target="_blank"
+class="btn-assistir">
+
+Assistir Série
+
+</a>
+
+</footer>
+
+<!-- Conecta o arquivo JavaScript que controla o slider -->
+<script src="javascript.js"></script>
+
+</body>
+</html>
