@@ -1,0 +1,487 @@
+/* =====================================================
+RESET GLOBAL
+Remove estilos padrões do navegador
+===================================================== */
+
+* {
+    margin: 0; /* remove margens padrão */
+    padding: 0; /* remove espaçamento interno padrão */
+    box-sizing: border-box; /* inclui padding e borda no cálculo da largura */
+}
+
+
+/* =====================================================
+ESTILO GERAL DO SITE
+===================================================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif; /* fonte padrão */
+    background-color: #000; /* fundo preto */
+    color: #fff; /* texto branco */
+    text-align: center; /* centraliza textos */
+}
+
+/* links */
+a {
+    text-decoration: none; /* remove sublinhado */
+    color: inherit; /* usa a mesma cor do elemento pai */
+}
+
+
+/* =====================================================
+SEÇÃO HERO
+(seção principal do site)
+===================================================== */
+
+.hero {
+    position: relative; /* permite elementos internos com absolute */
+    height: 100vh; /* ocupa altura da tela */
+    display: flex; /* ativa flexbox */
+    flex-direction: column; /* organiza em coluna */
+    align-items: center; /* centraliza horizontalmente */
+    justify-content: center; /* centraliza verticalmente */
+    overflow: hidden; /* esconde conteúdo que ultrapassa */
+}
+
+/* gradiente no final da hero */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(to bottom, transparent, #000); /* transição para preto */
+    z-index: 4;
+    pointer-events: none; /* não bloqueia cliques */
+}
+
+
+/* =====================================================
+BOTÕES DE TROCA DE VÍDEO
+===================================================== */
+
+.botoes {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%); /* centraliza horizontalmente */
+    display: flex;
+    gap: 15px; /* espaço entre botões */
+    z-index: 5;
+}
+
+.botao {
+    width: 14px;
+    height: 14px;
+    background: #1e90ff; /* cor azul */
+    border-radius: 50%; /* formato circular */
+    cursor: pointer; /* cursor de clique */
+    opacity: 0.6; /* transparência */
+    transition: 0.3s; /* animação suave */
+}
+
+/* efeito ao passar o mouse */
+.botao:hover {
+    transform: scale(1.3); /* aumenta tamanho */
+}
+
+/* botão ativo */
+.botao.ativo {
+    opacity: 1; /* visível */
+    box-shadow: 0 0 10px #1e90ff; /* brilho */
+}
+
+
+/* =====================================================
+VÍDEO DE FUNDO
+===================================================== */
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    min-width: 100%; /* cobre largura */
+    min-height: 100%; /* cobre altura */
+
+    transform: translate(-50%, -50%); /* centraliza vídeo */
+
+    object-fit: cover; /* mantém proporção preenchendo área */
+
+    z-index: 0;
+    transition: opacity 0.5s ease; /* troca suave de vídeo */
+}
+
+
+/* =====================================================
+OVERLAY ESCURO
+(melhora leitura do texto sobre o vídeo)
+===================================================== */
+
+.hero .overlay {
+    position: absolute;
+    inset: 0; /* ocupa toda área */
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.80)
+    ); /* escurece vídeo */
+    z-index: 1;
+}
+
+/* garante que conteúdo fique acima do overlay */
+.hero img,
+.hero p {
+    position: relative;
+    z-index: 3;
+}
+
+
+/* =====================================================
+LOGOS
+===================================================== */
+
+.hero .hbo {
+    width: 90px; /* tamanho do logo */
+    margin-bottom: 20px;
+}
+
+.hero .logo-principal {
+    width: 420px; /* tamanho da logo principal */
+    max-width: 90%; /* limita em telas pequenas */
+    margin: 20px 0;
+}
+
+.hero .tagline {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    opacity: 0.85; /* leve transparência */
+}
+
+
+/* =====================================================
+SEÇÃO SELETOR DE PERSONAGENS
+===================================================== */
+
+.seletor {
+    position: relative;
+
+    /* fundo com imagem + gradiente */
+    background:
+        linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.6) 15%, transparent 35%),
+        url("imagens/fundomargen2.png");
+
+    background-size: cover; /* cobre toda área */
+    background-position: center; /* centraliza imagem */
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 40px 100px;
+}
+
+/* camada escura sobre fundo */
+.seletor::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.42);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* conteúdo acima da camada */
+.seletor > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* esconde radio buttons */
+.seletor input {
+    display: none;
+}
+
+
+/* =====================================================
+TEXTO INTRODUTÓRIO
+===================================================== */
+
+.intro {
+    max-width: 700px;
+    text-align: center;
+    color: rgba(200, 198, 198, 0.85);
+    font-size: 17px;
+    line-height: 1.7; /* espaço entre linhas */
+    margin-bottom: 60px;
+}
+
+
+/* =====================================================
+IMAGENS DOS PERSONAGENS
+===================================================== */
+
+.imagens {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+}
+
+/* estrutura do personagem */
+.imagens label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* nome abaixo da imagem */
+.imagens label .nome-icon {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+    user-select: none;
+}
+
+/* imagens */
+.imagens img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* círculo */
+    object-fit: cover;
+
+    cursor: pointer;
+
+    opacity: 0.4;
+    border: 3px solid transparent;
+
+    transition:
+        opacity 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+    transform-origin: bottom center;
+    will-change: transform;
+
+    display: block;
+}
+
+
+/* =====================================================
+PERSONAGEM SELECIONADO
+===================================================== */
+
+#foto1:checked ~ .imagens label[for="foto1"] img,
+#foto2:checked ~ .imagens label[for="foto2"] img,
+#foto3:checked ~ .imagens label[for="foto3"] img {
+    opacity: 1; /* imagem ativa */
+    border-color: rgba(255, 255, 255, 0.9); /* borda branca */
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.4); /* brilho */
+}
+
+/* destaque no nome */
+#foto1:checked ~ .imagens label[for="foto1"] .nome-icon,
+#foto2:checked ~ .imagens label[for="foto2"] .nome-icon,
+#foto3:checked ~ .imagens label[for="foto3"] .nome-icon {
+    color: #fff;
+}
+
+
+/* =====================================================
+TEXTOS DOS PERSONAGENS
+===================================================== */
+
+.textos {
+    max-width: 560px;
+    width: 100%;
+    min-height: 140px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.texto {
+    display: none; /* escondido por padrão */
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+
+    animation: fadeSlideUp 0.45s ease forwards;
+}
+
+/* animação do texto */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.texto h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.texto p {
+    color: rgba(210, 208, 208, 0.85);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* mostra texto do personagem selecionado */
+#foto1:checked ~ .textos .texto1 { display: flex; }
+#foto2:checked ~ .textos .texto2 { display: flex; }
+#foto3:checked ~ .textos .texto3 { display: flex; }
+
+
+/* =====================================================
+SLIDER DE IMAGENS
+===================================================== */
+
+.slider {
+    margin: 100px auto;
+    width: 500px;
+    height: 300px;
+
+    position: relative;
+    overflow: visible;
+
+    border-radius: 12px;
+
+    will-change: transform;
+    transform-origin: center center;
+}
+
+.slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0; /* escondido */
+    transition: opacity 0.8s ease;
+}
+
+/* slide ativo */
+.slide.active {
+    opacity: 1;
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =====================================================
+BOTÕES DO SLIDER
+===================================================== */
+
+.manual-nav {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.manual-btn {
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+    border: 2px solid white;
+
+    background: transparent;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.manual-btn:hover {
+    background: white;
+}
+
+
+/* =====================================================
+BOTÃO ASSISTIR
+===================================================== */
+
+.btn-assistir {
+    display: inline-block;
+
+    margin-top: 30px;
+    padding: 16px 50px;
+
+    background: linear-gradient(45deg, #005eff, #00aaff);
+
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+
+    border-radius: 40px;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    box-shadow: 0 0 15px rgba(0, 132, 255, 0.6);
+
+    transition: 0.3s ease;
+
+    animation: pulse 1.8s infinite; /* animação de brilho */
+}
+
+.btn-assistir:hover {
+    transform: scale(1.1); /* aumenta no hover */
+    box-shadow: 0 0 25px rgba(0, 132, 255, 0.9);
+}
+
+/* animação pulsante */
+@keyframes pulse {
+    0%   { box-shadow: 0 0 10px rgba(0,132,255,0.6); }
+    50%  { box-shadow: 0 0 25px rgba(0,132,255,1); }
+    100% { box-shadow: 0 0 10px rgba(0,132,255,0.6); }
+}
+
+
+/* =====================================================
+RODAPÉ
+===================================================== */
+
+.footer {
+    padding: 30px;
+    font-size: 0.8rem;
+    opacity: 0.6; /* texto mais discreto */
+}
